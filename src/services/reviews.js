@@ -1,16 +1,23 @@
-import { format } from 'prettier';
+
 import { client, parseData } from './client';
 
 export async function getReviews() {
     const request = await client
     .from('reviews')
-.select(`
-id,
-review,
-created_at,
-user_id
-`);
+    .select(`
+        id,
+        review,
+        created_at,
+        user_id
+    `);
 return parseData(request);
 }
 
-export as
+export async function createReview(review) {
+    const request = await client
+    .from('reviews')
+    .insert(review)
+    .single();
+
+    return parseData(request);
+}
