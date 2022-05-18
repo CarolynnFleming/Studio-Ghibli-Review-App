@@ -14,3 +14,10 @@ export async function signUpUser({ email, password }) {
 
     return user;
 }
+
+export async function signInUser(email, password) {
+    const { user, error } = await client.auth.signIn({ email, password });
+    if (error) throw error;
+
+    return user;
+}
