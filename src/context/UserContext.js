@@ -11,3 +11,8 @@ export const UserProvider = ({ children }) => {
         currentUser ? { id: currentUser.id, email: currentUser.email } : {}
     );
 }
+
+const [profile, setProfile] = useState(null);
+
+const [isLoaded, setIsLoaded] = useState(false);
+
