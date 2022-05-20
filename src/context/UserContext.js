@@ -1,7 +1,5 @@
-import React from 'react'
+import { createContext, useState, useEffect } from "react";
+import { getUser } from '../services/users';
+import { getProfile } from "../services/profiles";
 
-export default function UserContext() {
-  return (
-    <div>UserContext</div>
-  )
-}
+export const UserContext = createContext();
