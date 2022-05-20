@@ -11,6 +11,16 @@ export default function ProfileForm({
     const { formState, handleChange } = useForm({ username, email });
     const [saving, setSaving] = useState(false);
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            setSaving(true);
+            await onSubmit(formState);
+        }
+        catch(err) {
+            setSaving(false);
+        }
+    };
     
   return (
     <div>ProfileForm</div>
