@@ -10,7 +10,7 @@ export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(
         currentUser ? { id: currentUser.id, email: currentUser.email } : {}
     );
-}
+
 
 const [profile, setProfile] = useState(null);
 
@@ -38,3 +38,8 @@ useEffect(() => {
     };
     loadProfile();
 }, [user]);
+
+const value = { user, setUser, profile, isLoaded, setProfile };
+
+return <UserContext.Provider value={value}>{children}</UserContext.Provider>
+}
