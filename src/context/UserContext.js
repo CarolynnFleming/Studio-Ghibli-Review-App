@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { getUser } from '../services/users';
+import toast from 'react-hot-toast'; 
 import { getProfile } from "../services/profiles";
 
 export const UserContext = createContext();
@@ -25,9 +26,9 @@ useEffect(() => {
 
             const profile = await getProfile(user.id);
             setProfile(profile);
-            <h1>
-                `Welcome ${profile.username}`
-            </h1>
+                toast(`Welcome Friends${profile.username}`), {
+                    icon: '🤘'
+                }
         }
         catch(err) {
             setProfile(null);
