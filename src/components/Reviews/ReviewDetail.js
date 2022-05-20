@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-export default function ReviewDetail() {
+export default function ReviewDetail({ review, isOwner }) {
 cosnt [sG, setSG] = useState({});
 const { id } = useParams();
+const { username, movie, review, created } = review;
+const date = new Date(created).toLocaleDateString();
 
 useEffect(() => {
     const fetchMovie = async() => {
