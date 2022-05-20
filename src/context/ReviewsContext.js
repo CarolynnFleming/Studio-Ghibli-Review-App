@@ -16,3 +16,13 @@ function reducer(reviews, {type, payload }) {
             throw Error(`Unkown action: ${type}`);
     }
 }
+
+export const ReviewsProvider = ({ children }) => {
+    const [reviews, dispatch] = useReducer(reducer);
+
+    return (
+        <ReviewsContext.Provider value={{ reviews, dispatch }}>
+            {children}
+        </ReviewsContext.Provider>
+    );
+};
