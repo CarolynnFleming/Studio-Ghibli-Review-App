@@ -1,7 +1,10 @@
-import React from 'react'
 
-export default function Profile() {
+
+export default function Profile({ profile: { username, email } }) {
   return (
-    <div>Profile</div>
+    <article>
+        <h1>{username}</h1>
+        <h3>{email}</h3>
+    </article>
   )
 }
