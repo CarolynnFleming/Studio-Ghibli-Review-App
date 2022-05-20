@@ -21,8 +21,30 @@ export default function ProfileForm({
             setSaving(false);
         }
     };
-    
+
   return (
-    <div>ProfileForm</div>
-  )
+    <form onSubmit={handleSubmit}>
+        <fieldset>
+            <legend>{formLabel}</legend>
+            <section>
+                <Label htmlFor="username">Username</Label>
+                <input
+                id="username"
+                username="username"
+                type="text"
+                placeholder='UserName'
+                value={formState.username}
+                onChange={handleChange}
+                />
+            </section>
+            <section>
+                <label htmlFor="email">Email</label>
+                <p>{email}</p>
+            </section>
+            <button type="submit" disabled={saving}>
+                {saving ? 'Saving...' : 'Save'}
+            </button>
+        </fieldset>
+    </form>
+  );
 }
