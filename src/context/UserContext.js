@@ -16,3 +16,25 @@ const [profile, setProfile] = useState(null);
 
 const [isLoaded, setIsLoaded] = useState(false);
 
+useEffect(() => {
+    const loadProfile = async () => {
+        setIsLoaded(false);
+
+        try {
+            if(!user) return setProfile();
+
+            const profile = await getProfile(user.id);
+            setProfile(profile);
+            <h1>
+                `Welcome ${profile.username}`
+            </h1>
+        }
+        catch(err) {
+            setProfile(null);
+        }
+        finally {
+            setIsLoaded(true);
+        }
+    };
+    loadProfile();
+}, [user]);
