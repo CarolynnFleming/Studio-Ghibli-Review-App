@@ -7,4 +7,6 @@ export default function Header() {
     const { user, profile, isLoaded } = useUser();
     const { loggedIn } = useAuth();
     const count = useReviewCount();
+
+    if (loggedIn && !isLoaded) return null;
 }
