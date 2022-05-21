@@ -12,7 +12,16 @@ export default function ReviewForm({
     const { formState, handleChange } = useForm({ movie, thoughts });
     const [saving, setSaving] = useState(false);
 
-    
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try{
+            setSaving(true);
+            await onSubmit(formState);
+        }
+        catch(err) {
+            setSaving(false);
+        }
+    };
   return (
     <div>ReviewForm</div>
   )
