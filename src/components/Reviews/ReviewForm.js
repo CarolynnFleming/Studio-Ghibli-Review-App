@@ -23,6 +23,36 @@ export default function ReviewForm({
         }
     };
   return (
-    <div>ReviewForm</div>
-  )
+    <form onSubmit={handleSubmit}>
+        <fieldset>
+            <legend>{label}</legend>
+            <section>
+                <label htmlFor='name'>Movie</label>
+                <input
+                id="Movie"
+                name="movie"
+                type="text"
+                placeholder='Film Title'
+                value={formState.movie}
+                onChange={handleChange}
+                />
+            </section>
+            <section>
+                <label htmlFor='name'>Review</label>
+                <input
+                id="thoughts"
+                name="thoughts"
+                type="text"
+                placeholder='Write Review'
+                value={formState.thoughts}
+                onChange={handleChange}
+                rows={10}
+                />
+            </section>
+            <button type="submit" disabled={saving}>
+                {saving ? 'Saving...' : 'Save'}
+            </button>
+        </fieldset>
+    </form>
+  );
 }
