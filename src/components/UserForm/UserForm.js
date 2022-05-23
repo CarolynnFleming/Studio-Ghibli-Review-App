@@ -20,6 +20,35 @@ export default function UserForm({ className = '', label, onSubmit }) {
         }
     };
   return (
-    <div>UserForm</div>
+    <form onSubmit={handleSubmit}>
+        <fieldset>
+            <legend>{label}</legend>
+
+            <section>
+                <label htmlFor='email'>Email</label>
+                <input
+                id="email"
+                type="email"
+                name="email"
+                value={formState.email}
+                onChange={handleChange}
+                placeholder="email"
+                />
+            </section>
+            <section>
+                <label htmlFor='password'>Password</label>
+                <input
+                id="password"
+                type="password"
+                name="password"
+                value={formState.password}
+                onChange={handleChange}
+                placeholder="password"
+                />
+            </section>
+            <button type="submit" disabled={loading}>{loading ? 'Loading...' : label}
+            </button>
+        </fieldset>
+    </form>
   )
 }
