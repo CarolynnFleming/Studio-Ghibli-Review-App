@@ -12,5 +12,7 @@ import toast from 'react-hot-toast';
 
 export function useReviews() {
     const context = useContext(ReviewsContext);
-    
+if(context === undefined) {
+    throw new Error('useSuggestion has to be within a ReviewsContext');
+}
 }
