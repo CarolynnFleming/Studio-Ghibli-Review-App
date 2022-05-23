@@ -18,5 +18,18 @@ if(context === undefined) {
 
 const { reviews, dispatch } = context;
 
-
+useEffect(() => {
+    if (reviews) return; 
+    const load = async () => {
+        try {
+            const payload = await getReviews();
+            dispatch({ type: 'reset', payload });
+        }
+        catch (err) {
+            toast.error(err.message);
+            throw err;
+        }
+    };
+    load();
+}, []);
 }
