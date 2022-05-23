@@ -32,4 +32,18 @@ useEffect(() => {
     };
     load();
 }, []);
+
+const add = async (review) => {
+    try {
+        const payload = await createReview(review);
+        dispatch({ type: 'create', payload });
+        toast.success(`Your review "${payload.movie}" has been added`);
+        return payload;
+    }
+    catch (err) {
+        toast.error(err.message);
+        throw err;
+    }
+};
+return { reviews, add };
 }
