@@ -15,4 +15,8 @@ export function useReviews() {
 if(context === undefined) {
     throw new Error('useSuggestion has to be within a ReviewsContext');
 }
+
+const { reviews, dispatch } = context;
+
+
 }
