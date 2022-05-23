@@ -7,6 +7,7 @@ export default function UserForm({ className = '', label, onSubmit }) {
         email: '',
         password: '',
     })
+    const [loading, setLoading] = useState(false);
   return (
     <div>UserForm</div>
   )
