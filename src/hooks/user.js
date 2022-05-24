@@ -30,4 +30,15 @@ export const useAuth = () => {
             throw err;
         }
     };
+
+    const signIn = async (email, password) => {
+        try{
+            const user = await signInUser(email, password);
+            setUser(user);
+        }
+        catch (err) {
+            toast.error(err.message);
+            throw err;
+        }
+    };
 } 
