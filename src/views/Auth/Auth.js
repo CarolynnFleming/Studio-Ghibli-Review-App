@@ -24,6 +24,10 @@ export default function Auth({ signingUp = false }) {
     label: 'Sign In',
     message: <>Need an account ? <Link to="/register">Sign Up</Link></>
   };
+
+  const options = signingUp ? signUpOptions : signInOptions;
+
+  
   return (
     <div>Auth</div>
   )
