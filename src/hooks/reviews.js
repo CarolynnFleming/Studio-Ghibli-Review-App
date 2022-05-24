@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
-import { ReviewsContext, ReviewsContext}  from '../context/ReviewsContext';
+import { ReviewsContext }  from '../context/ReviewsContext';
 import { useUser } from './user';
 import {
     getReviews,
@@ -46,6 +46,15 @@ const add = async (review) => {
     }
 };
 return { reviews, add };
+}
+
+export function useReviewCount() {
+const context = useContext(ReviewsContext);
+
+if (context === undefined) {
+    throw new Error('useSuggestion must be in a SuggestionContext');
+}
+
 }
 
 
