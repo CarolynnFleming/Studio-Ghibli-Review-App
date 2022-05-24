@@ -58,7 +58,7 @@ export const useUser = () => {
     }
 
     const { user, profile, isLoaded, setProfile } = context;
-    
+
 const create = async (data) => {
     try{
         const profile = await createProfile(data);
@@ -70,4 +70,16 @@ const create = async (data) => {
         throw err;
     }
 };
+
+const update = async (data) => {
+    try{
+        const profile = await updateProfile(data);
+        setProfile(profile);
+        toast.success('Profile updated');
+    }
+    catch(err) {
+        toast.error(err.message);
+        throw err;
+    }
+}
 }
