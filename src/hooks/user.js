@@ -5,7 +5,7 @@ import {
     signInUser,
     signUpUser,
     signOutUser,
-} from '../services/users';
+} from '../services/user';
 import {
     createProfile,
     updateProfile
