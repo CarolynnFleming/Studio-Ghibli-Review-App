@@ -52,5 +52,9 @@ return { reviews, add };
 export function useReview(id) {
     const context = useContext(ReviewsContext);
     const { profile } = useUser();
-    
+    if (context === undefined) {
+        throw new Error('useReview must be used within a ReviewContext');
+    }
+
+    const { reviews, dispatch } = context;
 }
