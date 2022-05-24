@@ -63,3 +63,14 @@ export function getReview(id) {
     const data = parseData(request);
     return mapFrom(data);
 }
+
+export async function removeReview(id) {
+    const request = await client
+    .from('reviews')
+    .delete()
+    .match({ id })
+    .single();
+
+    const data = parseData(request);
+    return mapFrom(data);
+}
