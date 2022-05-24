@@ -48,11 +48,14 @@ export const useAuth = () => {
         toast('You have been signed out');
     };
 
-    return { user, profile, isLoaded, setProfile } = context;
+    return { user, loggedIn, signUp, signIn, signOut };
 };
 
 export const useUser = () => {
     const context = useContext(UserContext);
+    if(context === undefined) {
+        throw new Error ('userUser nust be in a UserProvider');
+    }
 const create = async (data) => {
     try{
         const profile = await createProfile(data);
