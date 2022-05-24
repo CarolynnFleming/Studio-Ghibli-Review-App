@@ -10,7 +10,13 @@ export default function Auth({ signingUp = false }) {
   const location = useLocation();
   const { loggedIn, signUp, signIn } = useAuth();
 
-
+  const signUpOptions = {
+    action: signUp,
+    redirectTo: '/confirm-email',
+    header: 'Welcome!',
+    label: 'Sign Up',
+    message: <>Already have an account ? <Link to="/login">Sign In</Link></>
+  };
   return (
     <div>Auth</div>
   )
