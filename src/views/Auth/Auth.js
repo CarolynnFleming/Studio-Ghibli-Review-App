@@ -12,14 +12,14 @@ export default function Auth({ signingUp = false }) {
 
   const signUpOptions = {
     action: signUp,
-    redirectTo: '/confirm-email',
+    redirectTo: '/login',
     header: 'Welcome!',
     label: 'Sign Up',
     message: <>Already have an account ? <Link to="/login">Sign In</Link></>
   };
   const signInOptions = {
     action: signIn,
-    redirectTo: '/confirm-email',
+    redirectTo: location.state?.from?.pathename || PROFILE_PATH,
     header: 'Welcome!',
     label: 'Sign In',
     message: <>Need an account ? <Link to="/register">Sign Up</Link></>

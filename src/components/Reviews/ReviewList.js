@@ -1,10 +1,11 @@
 import ReviewItem from "./ReviewItem";
-import { Link, useHistory, useLoocation } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useEffect, useState } from "react";
 
 export default function ReviewList({ reviews }) {
-    const location = useHistory();
-    const producer= new URLSeearchPrograms(location.search).get('producer') ?? 'all';
+    const history = useHistory();
+    const location = useLocation();
+    const producer= new URLSearchPrograms(location.search).get('producer') ?? 'all';
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
 

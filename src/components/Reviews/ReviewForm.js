@@ -39,7 +39,7 @@ export default function ReviewForm({
             </section>
             <section>
                 <label htmlFor='name'>Review</label>
-                <input
+                <textarea
                 id="thoughts"
                 name="thoughts"
                 type="text"

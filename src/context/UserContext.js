@@ -22,7 +22,7 @@ useEffect(() => {
         setIsLoaded(false);
 
         try {
-            if(!user) return setProfile({});
+            if(!user) return setProfile();
 
             const profile = await getProfile(user.id);
             setProfile(profile);

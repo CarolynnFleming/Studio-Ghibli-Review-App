@@ -54,7 +54,7 @@ export const useAuth = () => {
 export const useUser = () => {
     const context = useContext(UserContext);
     if(context === undefined) {
-        throw new Error ('userUser nust be in a UserProvider');
+        throw new Error ('userUser must be in a UserProvider');
     }
 
     const { user, profile, isLoaded, setProfile } = context;
@@ -83,4 +83,4 @@ const update = async (data) => {
     }
 };
 return { user, profile, isLoaded, create, update };
-}
+};

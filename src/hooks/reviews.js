@@ -11,10 +11,10 @@ import {
 import toast from 'react-hot-toast';
 
 export function useReviews() {
-    const context = useContext(ReviewsContext);
-if(context === undefined) {
-    throw new Error('useSuggestion has to be within a ReviewsContext');
-}
+  const context = useContext(ReviewsContext);
+  if(context === undefined) {
+  throw new Error('useSuggestion has to be within a ReviewsContext');
+  }
 
 const { reviews, dispatch } = context;
 
@@ -54,7 +54,7 @@ const context = useContext(ReviewsContext);
 if (context === undefined) {
     throw new Error('useSuggestion must be in a SuggestionContext');
 }
-return context.review?.length;
+return context.reviews?.length;
 }
 
 
@@ -110,7 +110,7 @@ export function useReview(id) {
             });
             const payload = {
                 ...updated,
-                name: profile.username
+                username: profile.username
             };
 
             setReview(payload);

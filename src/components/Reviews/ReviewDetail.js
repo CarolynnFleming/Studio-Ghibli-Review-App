@@ -21,7 +21,7 @@ useEffect(() => {
   return (
       <>
     <h1>Movie Review</h1>
-    <Link to="/">Back to the List of Movies</Link>
+    <Link to="/reviews">Back to the List of Movies</Link>
     <article>
         <h2>{sG.title}</h2>
         <h2>{sG.original_title}</h2>

@@ -4,12 +4,12 @@ function mapFrom({ created_at, user_id, profiles, ...rest }) {
     return {
         created: created_at,
         userId: user_id,
-        name: profiles?.username,
+        username: profiles?.username,
         ...rest
     };
 }
 
-function mapTo({ created, userId, name, ...rest }) {
+function mapTo({ created, userId, username, ...rest }) {
     return rest;
 }
 export async function getReviews() {
@@ -24,7 +24,7 @@ export async function getReviews() {
             username
         )
     `);
-const data= parseData(request);
+const data = parseData(request);
 return data.map(mapFrom);
 }
 
