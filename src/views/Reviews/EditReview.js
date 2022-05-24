@@ -1,5 +1,5 @@
 import { Link, useParams, useHistory } from 'react-router-dom';
-import { useReview } from '../.../hooks/reviews';
+import { useReview } from '../../hooks/reviews';
 import { useAuth } from '../../hooks/user';
 import ReviewForm from '../../components/Reviews/ReviewForm';
 

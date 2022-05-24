@@ -12,7 +12,7 @@ export default function Header() {
 
     return (
         <>
-        <Header>
+        <header>
             <Link to='/'>Review the Ghibli Movies</Link>
             <Link to="/reviews">{count}Review{count !== 1 && 'r'}</Link>
             <p>{loggedIn ? (
@@ -25,7 +25,7 @@ export default function Header() {
             )}
             <Auth />
             </p>
-        </Header>
+        </header>
         </>
     );
 }
