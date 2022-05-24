@@ -50,3 +50,15 @@ export const useAuth = () => {
 
     return { user, profile, isLoaded, setProfile } = context;
 };
+
+const create = async (data) => {
+    try{
+        const profile = await createProfile(data);
+        setProfile(profile);
+        toast.success('Profile created');
+    }
+    catch(err) {
+        toast.error(err.message);
+        throw err;
+    }
+};
