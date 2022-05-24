@@ -21,3 +21,16 @@ export default function ViewProfile() {
     onCreate={handleCreate}
     />;
 }
+
+function CreateProfile({ email, onCreate }) {
+    return(
+        <>
+        <p>Fill out the Form and Create A Profile!</p>
+        <ProfileForm
+        formLabel='Create Profile'
+        onSubmit={onCreate}
+        email={email}
+        />
+        </>
+    );
+}
