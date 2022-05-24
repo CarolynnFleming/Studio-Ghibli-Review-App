@@ -17,6 +17,13 @@ export default function Auth({ signingUp = false }) {
     label: 'Sign Up',
     message: <>Already have an account ? <Link to="/login">Sign In</Link></>
   };
+  const signInOptions = {
+    action: signIn,
+    redirectTo: '/confirm-email',
+    header: 'Welcome!',
+    label: 'Sign In',
+    message: <>Need an account ? <Link to="/register">Sign Up</Link></>
+  };
   return (
     <div>Auth</div>
   )
