@@ -18,4 +18,16 @@ export const useAuth = () => {
     }
 
     const { user, setUser } = context;
+
+    const loggedIn =user?.email;
+    const signUp = async (email, password) => {
+        try{
+            const user = await signUpUser(email, password);
+            setUser(user);
+        }
+        catch (err) {
+            toast.error(err.message);
+            throw err;
+        }
+    };
 } 
