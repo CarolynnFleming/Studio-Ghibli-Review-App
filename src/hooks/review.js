@@ -73,4 +73,23 @@ export function useReview(id) {
         };
         load();
     }, [id]);
+
+    const remove = async () => {
+        if (!review) return;
+
+        try {
+            const payload = await removeReview(review.id);
+            setReview(null);
+
+            if (reviews) dispatch({ type: 'delete', payload });
+            toast.success(`Your review "${review.movie}" has been deleted`);
+            return payload;
+        }
+        catch(err) {
+            toast.error(err.message);
+            throw err;
+        }
+    };
+
+    
 }
