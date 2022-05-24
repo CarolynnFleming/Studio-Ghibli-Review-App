@@ -9,6 +9,10 @@ function mapFrom({ created_at, user_id, profiles, ...rest }) {
         ...rest
     };
 }
+
+function mapTo({ created, userId, name, ...rest }) {
+    return rest;
+}
 export async function getReviews() {
     const request = await client
     .from('reviews')
