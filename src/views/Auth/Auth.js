@@ -33,8 +33,19 @@ export default function Auth({ signingUp = false }) {
   };
 
   if (loggedIn) return <Redirect to={PROFILE_PATH} />;
-  
+
   return (
-    <div>Auth</div>
+    <section>
+      <h2>{options.header}</h2>
+      <br />
+      <UserForm
+      onSubmit={handleSubmit}
+      label={options.label}
+      />
+
+      <p>
+        {options.message}
+      </p>
+    </section>
   )
 }
