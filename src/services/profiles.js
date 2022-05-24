@@ -8,6 +8,14 @@ export async function getProfile() {
     return parseData(request);
 }
 
+export async function updateProfile({ username, email }) {
+    const request = await client
+    .from('profiles')
+    .update({ username })
+    .match({ email })
+    .single();
+    return parseData(request);
+}
 export async function createProfile({ email, username }) {
     const request = await client
     .from('profiles')
