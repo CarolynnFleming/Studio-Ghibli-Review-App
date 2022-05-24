@@ -48,3 +48,18 @@ export function updateReview(review) {
     const data = parseData(request);
     return mapFrom(data);
 }
+
+export function getReview(id) {
+    const request = await client
+    .from('reviews')
+    .select(`
+    *,
+    profiles(
+        username
+    )
+    `)
+    .match({ id })
+    .single();
+    const data = parseData(request);
+    return mapFrom(data);
+}
