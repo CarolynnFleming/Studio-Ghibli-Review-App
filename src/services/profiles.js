@@ -28,5 +28,5 @@ export async function deleteProfileByEmail(email) {
     .from('profiles')
     .delete()
     .match({ email });
-    return parseData;
+    return parseData(request);
 }
