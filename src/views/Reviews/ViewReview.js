@@ -2,6 +2,7 @@ import { Link, useParams, useHistory } from 'react-router-dom';
 import { useReview } from '../../hooks/reviews';
 import { useAuth } from'../../hooks/user';
 import reviewDetail from '../../components/Reviews/ReviewDetail';
+import ReviewDetail from '../../components/Reviews/ReviewDetail';
 
 export default function ViewReview() {
     const history = useHistory();
@@ -10,7 +11,43 @@ export default function ViewReview() {
     const { user } = useAuth();
 
     if(!review) return null;
+
+    const isOwner = user.id === review.userId;
+
+    const handleDelete = async () => {
+        if(!confirm('Are you sure?')) return;
+        await remove();
+        history.replace('/reviews')
+    }
   return (
-    <div>ViewReview</div>
-  )
+    <div>
+        <Link to="/reviews">
+            View reviews
+        </Link>
+        <ReviewDetail
+        review={review}
+        isOwner={isOwner}
+        />
+        <div>
+            {isOwner && <Link to={`/reviews/${id}/edit`}>
+                <p>
+                    <button>Edit Review</button>
+                    </p>
+                    </Link>}
+            {isOwner && 
+            <p>
+                <button onClick={handleDelete}>
+                    Delete Suggestion
+                </button>
+            </p>
+            }
+            { isOwner || <link to={`/reviews/${id}/copy`}>
+                <p>
+                    <button>Copy Review</button>
+                </p>
+                
+            </link>}
+        </div>
+    </div>
+  );
 }
