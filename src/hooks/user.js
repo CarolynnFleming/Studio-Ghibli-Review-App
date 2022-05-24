@@ -47,4 +47,6 @@ export const useAuth = () => {
         setUser({});
         toast('You have been signed out');
     };
-} 
+
+    return { user, profile, isLoaded, setProfile } = context;
+};
