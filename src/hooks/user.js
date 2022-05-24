@@ -14,6 +14,8 @@ import {
 export const useAuth = () => {
     const context = useContext(UserContext);
     if (context === undefined) {
-        throw new Error('Auth has to be within UserProvider')l
+        throw new Error('Auth has to be within UserProvider')
     }
-}
+
+    const { user, setUser } = context;
+} 
