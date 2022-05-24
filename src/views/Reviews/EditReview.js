@@ -14,7 +14,10 @@ export default function EditReview() {
     const isOwner = user.id === review.userId;
     const detailURL = `/reviews/${id}`;
 
-    
+    if(!isOwner) {
+        history.replace(detailURL);
+        return null;
+    }
   return (
     <div>EditReview</div>
   )
