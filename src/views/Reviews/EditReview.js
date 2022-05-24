@@ -10,6 +10,11 @@ export default function EditReview() {
     const { user } = useAuth();
 
     if(!review) return null;
+
+    const isOwner = user.id === review.userId;
+    const detailURL = `/reviews/${id}`;
+
+    
   return (
     <div>EditReview</div>
   )
