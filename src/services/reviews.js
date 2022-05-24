@@ -1,4 +1,5 @@
 
+import { data } from 'autoprefixer';
 import { client, parseData } from './client';
 
 function mapFrom({ created_at, user_id, profiles, ...rest }) {
@@ -20,9 +21,13 @@ export async function getReviews() {
         id,
         review,
         created_at,
-        user_id
+        user_id,
+        profiles (
+            username
+        )
     `);
-return parseData(request);
+const data= parseData(request);
+return data.map(mapFrom);
 }
 
 export async function createReview(review) {
