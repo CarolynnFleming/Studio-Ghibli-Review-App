@@ -51,4 +51,6 @@ return { reviews, add };
 
 export function useReview(id) {
     const context = useContext(ReviewsContext);
+    const { profile } = useUser();
+    
 }
