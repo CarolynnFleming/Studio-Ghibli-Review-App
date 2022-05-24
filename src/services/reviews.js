@@ -33,8 +33,9 @@ return data.map(mapFrom);
 export async function createReview(review) {
     const request = await client
     .from('reviews')
-    .insert(review)
+    .insert(mapTo(review))
     .single();
 
-    return parseData(request);
+    const data = parseData(request);
+    return mapFrom(data);
 }
