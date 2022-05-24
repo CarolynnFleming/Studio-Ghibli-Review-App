@@ -51,6 +51,8 @@ export const useAuth = () => {
     return { user, profile, isLoaded, setProfile } = context;
 };
 
+export const useUser = () => {
+    const context = useContext(UserContext);
 const create = async (data) => {
     try{
         const profile = await createProfile(data);
@@ -62,3 +64,4 @@ const create = async (data) => {
         throw err;
     }
 };
+}
