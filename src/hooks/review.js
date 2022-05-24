@@ -60,5 +60,17 @@ export function useReview(id) {
 
     const [review, setReview] = useState(null);
 
-    
+    useEffect(() => {
+        const load = async () => {
+            try {
+                const review = await getReview(id);
+                setReview(review);
+            }
+            catch (err) {
+                toast.error(err.message);
+                throw err;
+            }
+        };
+        load();
+    }, [id]);
 }
