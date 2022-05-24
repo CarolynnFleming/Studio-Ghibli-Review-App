@@ -27,6 +27,12 @@ export default function Auth({ signingUp = false }) {
 
   const options = signingUp ? signUpOptions : signInOptions;
 
+  const handleSubmit = async (email, password) => {
+    await options.action(email, password);
+    history.replace(options.redirectTo);
+  };
+
+  if (loggedIn) return <Redirect to={PROFILE_PATH} />;
   
   return (
     <div>Auth</div>
