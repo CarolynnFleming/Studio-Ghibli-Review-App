@@ -34,3 +34,13 @@ function CreateProfile({ email, onCreate }) {
         </>
     );
 }
+function ShowProfile({ profile }) {
+    return(
+        <>
+        <Link to="/profile/edit">
+            <button>Edit Profile</button>
+            <Profile profile={profile} />
+        </Link>
+        </>
+    );
+}
