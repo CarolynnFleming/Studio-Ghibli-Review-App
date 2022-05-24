@@ -91,5 +91,29 @@ export function useReview(id) {
         }
     };
 
-    
+    const update = async (edits) => {
+        if (!review) return;
+
+        try {
+            const updated = await updateReview({
+                ...review,
+                ...edits
+            });
+            const payload = {
+                ...updated,
+                name: profile.username
+            };
+
+            setReview(payload);
+
+            if (reviews) dispatch({ type: 'update', payload });
+            toast.success(`Updated review "${review.movie}"`);
+            return payload;
+        }
+        catch (err) {
+            toast.error(err.message);
+            throw err;
+        }
+    };
+    return { review, remove, update };
 }
