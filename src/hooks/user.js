@@ -56,6 +56,9 @@ export const useUser = () => {
     if(context === undefined) {
         throw new Error ('userUser nust be in a UserProvider');
     }
+
+    const { user, profile, isLoaded, setProfile } = context;
+    
 const create = async (data) => {
     try{
         const profile = await createProfile(data);
