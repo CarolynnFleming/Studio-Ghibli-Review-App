@@ -47,3 +47,8 @@ const add = async (review) => {
 };
 return { reviews, add };
 }
+
+
+export function useReview(id) {
+    const context = useContext(ReviewsContext);
+}
