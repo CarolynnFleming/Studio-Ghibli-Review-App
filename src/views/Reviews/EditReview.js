@@ -23,6 +23,20 @@ export default function EditReview() {
         history.push('/reviews');
     }
   return (
-    <div>EditReview</div>
+    <div>
+        <div>
+            <Link to="/reviews">
+                Reviews
+            </Link>
+            {' / '}
+            <Link to={detailURL}>{review.movie}</Link>
+        </div>
+
+        <ReviewForm
+        label='Edit Review'
+        review={review}
+        onsubmit={handleSubmit}
+        />
+    </div>
   )
 }
