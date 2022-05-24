@@ -7,4 +7,10 @@ export default function ViewProfile() {
     const { user, profile, isLoaded, create } = useUser();
 
     if(isLoaded) return null;
+
+    const hasProfile = user && profile;
+
+    const handleCreate = async (profile) => {
+        await create(profile);
+    }
 }
