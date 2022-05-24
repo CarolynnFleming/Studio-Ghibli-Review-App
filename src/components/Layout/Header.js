@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useUser, useAuth } from '../../hooks/user';
 import { useReviewCount } from '../../hooks/reviews';
-import AuthButton from '../../components/Auth/AuthButton';
+import Auth from '../../components/Auth/Auth';
 
 export default function Header() {
     const { user, profile, isLoaded } = useUser();
@@ -23,7 +23,7 @@ export default function Header() {
             ) : (
                 <span>Not Signed In</span>
             )}
-            <AuthButton />
+            <Auth />
             </p>
         </Header>
         </>
