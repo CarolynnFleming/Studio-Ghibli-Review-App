@@ -1,5 +1,3 @@
-
-import { data } from 'autoprefixer';
 import { client, parseData } from './client';
 
 function mapFrom({ created_at, user_id, profiles, ...rest }) {
@@ -34,6 +32,17 @@ export async function createReview(review) {
     const request = await client
     .from('reviews')
     .insert(mapTo(review))
+    .single();
+
+    const data = parseData(request);
+    return mapFrom(data);
+}
+
+export function updateReview(review) {
+    const request = await client
+    .from('reviews')
+    .update(mapTo(review))
+    .match({ id: review.id })
     .single();
 
     const data = parseData(request);
