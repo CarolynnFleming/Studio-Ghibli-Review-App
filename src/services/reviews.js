@@ -38,7 +38,7 @@ export async function createReview(review) {
     return mapFrom(data);
 }
 
-export function updateReview(review) {
+export async function updateReview(review) {
     const request = await client
     .from('reviews')
     .update(mapTo(review))
@@ -49,7 +49,7 @@ export function updateReview(review) {
     return mapFrom(data);
 }
 
-export function getReview(id) {
+export async function getReview(id) {
     const request = await client
     .from('reviews')
     .select(`
