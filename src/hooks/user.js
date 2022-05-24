@@ -81,5 +81,6 @@ const update = async (data) => {
         toast.error(err.message);
         throw err;
     }
-}
+};
+return { user, profile, isLoaded, create, update };
 }
