@@ -13,4 +13,11 @@ export default function ViewProfile() {
     const handleCreate = async (profile) => {
         await create(profile);
     }
+
+    return hasProfile
+    ? <ShowProfile profile={profile} />
+    : <CreateProfile
+    email={user.email}
+    onCreate={handleCreate}
+    />;
 }
