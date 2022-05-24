@@ -18,6 +18,10 @@ export default function EditReview() {
         history.replace(detailURL);
         return null;
     }
+    const handleSubmit = async (edited) => {
+        await update(edited);
+        history.push('/reviews');
+    }
   return (
     <div>EditReview</div>
   )
