@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
-import { ReviewsContext, reviewsContext}  from '../context/ReviewsContext';
+import { ReviewsContext, ReviewsContext}  from '../context/ReviewsContext';
 import { useUser } from './user';
 import {
     getReviews,
