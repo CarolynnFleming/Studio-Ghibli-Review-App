@@ -54,7 +54,7 @@ const context = useContext(ReviewsContext);
 if (context === undefined) {
     throw new Error('useSuggestion must be in a SuggestionContext');
 }
-
+return context.review?.length;
 }
 
 
