@@ -14,7 +14,7 @@ export default function Header() {
         <>
         <header>
             <Link to='/'>Review the Ghibli Movies</Link>
-            <Link to="/reviews">{count}Review{count !== 1 && 'r'}</Link>
+            <Link to="/reviews">{count} Review{count !== 1 && 'r'}</Link>
             <p>{loggedIn ? (
                 <>
                 <span>Signed in as</span>
