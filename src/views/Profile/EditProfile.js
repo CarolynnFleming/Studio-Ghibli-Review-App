@@ -20,5 +20,14 @@ export default function EditProfile() {
             setLoading(false);
         }
     };
-    
+    if (loading) return <Loading />;
+
+    return (
+        <ProfileForm
+        formLabel='Edit Profile'
+        name={profile?.username}
+        email={profile?.email}
+        onSubmit={handleEdit}
+        />
+    );
 }
