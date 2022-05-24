@@ -11,6 +11,12 @@ export default function AddReview() {
     history.replace('/reviews');
   };
   return (
-    <div>ApiList</div>
-  )
+    <div>
+      <h1>Review a new movie</h1>
+      <ReviewForm
+      label="New Review"
+      onSubmit={handleSubmit}
+      />
+    </div>
+  );
 }
