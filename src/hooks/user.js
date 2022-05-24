@@ -19,7 +19,7 @@ export const useAuth = () => {
 
     const { user, setUser } = context;
 
-    const loggedIn =user?.email;
+    const loggedIn = user?.email;
     const signUp = async (email, password) => {
         try{
             const user = await signUpUser(email, password);
@@ -40,5 +40,11 @@ export const useAuth = () => {
             toast.error(err.message);
             throw err;
         }
+    };
+
+    const signOut = async () => {
+        await signOutUser();
+        setUser({});
+        toast('You have been signed out');
     };
 } 
