@@ -1,17 +1,28 @@
 import { client, parseData } from './client';
 
-export async function getProfile() {
+export async function getProfile(userId) {
     const request = await client
     .from('profiles')
     .select()
-    .single()
+    .match({ user_id: userId })
+    .single();
+
     return parseData(request);
 }
 
+export async function updateProfile({ username, email }) {
+    const request = await client
+    .from('profiles')
+    .update({ username })
+    .match({ email })
+    .single();
+    return parseData(request);
+}
 export async function createProfile({ email, username }) {
     const request = await client
     .from('profiles')
-    .insert({ email, username });
+    .insert({ email, username })
+    .single();
     return parseData(request);
 }
 
@@ -20,5 +31,5 @@ export async function deleteProfileByEmail(email) {
     .from('profiles')
     .delete()
     .match({ email });
-    return parseData;
+    return parseData(request);
 }

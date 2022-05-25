@@ -12,7 +12,7 @@ export default function ReviewItem({ review }) {
         <span>
             {date.toLocaleString()}
         </span>
-        <Link tp={`/reviews/${id}`}>
+        <Link to={`/reviews/${id}`}>
             {movie}
         </Link>
         <span>{isOwner ? 'you' : username}</span>

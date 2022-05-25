@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 
 
-export default function UserForm({ className = '', label, onSubmit }) {
+export default function UserForm({ label, onSubmit }) {
     const { formState, handleChange } = useForm({
         email: '',
         password: '',
@@ -12,6 +12,7 @@ export default function UserForm({ className = '', label, onSubmit }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const {email, password} = formState;
+        console.log(email, password)
         try{
             setLoading(true);
             await onSubmit(email, password);
@@ -30,6 +31,7 @@ export default function UserForm({ className = '', label, onSubmit }) {
                 id="email"
                 type="email"
                 name="email"
+                required
                 value={formState.email}
                 onChange={handleChange}
                 placeholder="email"
@@ -41,6 +43,7 @@ export default function UserForm({ className = '', label, onSubmit }) {
                 id="password"
                 type="password"
                 name="password"
+                required
                 value={formState.password}
                 onChange={handleChange}
                 placeholder="password"

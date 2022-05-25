@@ -27,7 +27,7 @@ export default function ProfileForm({
         <fieldset>
             <legend>{formLabel}</legend>
             <section>
-                <Label htmlFor="username">Username</Label>
+                <label htmlFor="username">Username</label>
                 <input
                 id="username"
                 username="username"

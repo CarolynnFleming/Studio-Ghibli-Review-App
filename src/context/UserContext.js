@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { getUser } from '../services/users';
+import { getUser } from '../services/user';
 import toast from 'react-hot-toast'; 
 import { getProfile } from "../services/profiles";
 
@@ -22,7 +22,7 @@ useEffect(() => {
         setIsLoaded(false);
 
         try {
-            if(!user) return setProfile();
+            if(!user.email) return setProfile();
 
             const profile = await getProfile(user.id);
             setProfile(profile);
