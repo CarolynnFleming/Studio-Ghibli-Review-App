@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export default function ReviewList({ reviews }) {
     const history = useHistory();
     const location = useLocation();
-    const producer= new URLSearchPrograms(location.search).get('producer') ?? 'all';
+    const producer= new URLSearchParams(location.search).get('producer') ?? 'all';
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -35,7 +35,6 @@ export default function ReviewList({ reviews }) {
     if(!reviews) return null;
   return (
     <>
-    <h1>Movie List</h1>
     {loading ? (
         <p>Loading Movies...</p>
     ) : (

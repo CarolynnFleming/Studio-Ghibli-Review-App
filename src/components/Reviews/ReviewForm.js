@@ -29,7 +29,7 @@ export default function ReviewForm({
             <section>
                 <label htmlFor='name'>Movie</label>
                 <input
-                id="Movie"
+                id="movie"
                 name="movie"
                 type="text"
                 placeholder='Film Title'

@@ -25,7 +25,7 @@ export default function EditProfile() {
     return (
         <ProfileForm
         formLabel='Edit Profile'
-        name={profile?.username}
+        username={profile?.username}
         email={profile?.email}
         onSubmit={handleEdit}
         />

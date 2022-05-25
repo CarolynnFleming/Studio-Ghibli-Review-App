@@ -49,7 +49,7 @@ export async function updateReview(review) {
     return mapFrom(data);
 }
 
-export async function getReview(id) {
+export async function getReview(user_id) {
     const request = await client
     .from('reviews')
     .select(`
@@ -58,8 +58,7 @@ export async function getReview(id) {
         username
     )
     `)
-    .match({ id })
-    .single();
+    .match({ user_id });
     const data = parseData(request);
     return mapFrom(data);
 }

@@ -12,6 +12,7 @@ export default function UserForm({ label, onSubmit }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const {email, password} = formState;
+        console.log(email, password)
         try{
             setLoading(true);
             await onSubmit(email, password);

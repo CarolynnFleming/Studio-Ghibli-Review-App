@@ -1,7 +1,6 @@
 import { Link, useParams, useHistory } from 'react-router-dom';
 import { useReview } from '../../hooks/reviews';
-import { useAuth } from'../../hooks/user';
-import reviewDetail from '../../components/Reviews/ReviewDetail';
+import { useAuth } from'../../hooks/user';;
 import ReviewDetail from '../../components/Reviews/ReviewDetail';
 
 export default function ViewReview() {
@@ -41,12 +40,12 @@ export default function ViewReview() {
                 </button>
             </p>
             }
-            { isOwner || <link to={`/reviews/${id}/copy`}>
+            { isOwner || <Link to={`/reviews/${id}/copy`}>
                 <p>
                     <button>Copy Review</button>
                 </p>
                 
-            </link>}
+            </Link>}
         </div>
     </div>
   );

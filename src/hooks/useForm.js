@@ -4,12 +4,12 @@ export function useForm(inputs = {}) {
     const [formState, setFormState] = useState({ ...inputs });
 
     const handleChange = (e) => {
-        const { username, value, type, checked } = e.target;
+        const { name, value, type, checked } = e.target;
 
     setFormState((prevState) => {
         return {
             ...prevState,
-            [username]: type === 'checkbox' ? checked : value
+            [name]: type === 'checkbox' ? checked : value
         };
     });
     };
