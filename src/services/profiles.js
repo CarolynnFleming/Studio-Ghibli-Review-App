@@ -5,7 +5,7 @@ export async function getProfile(userId) {
     .from('profiles')
     .select()
     .match({ user_id: userId })
-    .single();
+    // .single();
 
     return parseData(request);
 }
